@@ -17,7 +17,7 @@ i: int = 0
 
 while i < len(secret_word):
     if guess[i] == secret_word[i]:
-        result = f"{result}{GREEN_BOX}"
+        result += GREEN_BOX
     else:
         check: bool = False
         j: int = 0
@@ -25,12 +25,12 @@ while i < len(secret_word):
             if secret_word[j] == guess[i]:
                 check = True
             else:
-                j = j + 1
+                j += 1
         if check:
-            result = f"{result}{YELLOW_BOX}"
+            result += YELLOW_BOX
         else:
-            result = f"{result}{WHITE_BOX}"
-    i = i + 1
+            result += WHITE_BOX
+    i += 1
 
 print(result)
 
