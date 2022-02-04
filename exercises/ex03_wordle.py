@@ -2,6 +2,7 @@
 
 __author__ = "730470219"
 
+
 def contains_char(word_being_searched: str, searched_letter: str) -> bool:
     """Function that checks for a given letter in a given word."""
     assert len(searched_letter) == 1
@@ -12,6 +13,7 @@ def contains_char(word_being_searched: str, searched_letter: str) -> bool:
         else:
             i += 1
     return False
+
 
 def emojified(guess: str, secret: str) -> str:
     """Function that evaluates the accuracy of the guessed word with the secret word."""
@@ -32,12 +34,14 @@ def emojified(guess: str, secret: str) -> str:
         i += 1
     return result
 
+
 def input_guess(chosen_length: int) -> str:
     """Function to retrieve a guessed word of a given length."""
     guess: str = input(f"Enter a {chosen_length} character word: ")
     while len(guess) != chosen_length:
         guess = input(f"That wasn't {chosen_length} chars! Try again: ")
     return guess
+
 
 def main() -> None:
     """The entrypoint of the program and main game loop."""
@@ -47,16 +51,16 @@ def main() -> None:
     turns: int = 1
     while playing and turns < 7:
         print(f"=== Turn {turns}/6 ===")
-        guessed_word = input_guess(len(secret_word))
-        print(emojified(guessed_word, secret_word))
-        if guessed_word == secret_word:
+        guess = input_guess(len(secret_word))
+        print(emojified(guess, secret_word))
+        if guess == secret_word:
+            print(f"You won in {turns}/6 turns!")
             playing = False
         else:
             turns += 1
-    if guess == secret_word:
-        print(f"You won in {turns}/6 turns!")
-    else:  
+    if guess != secret_word:
         print("X/6 - Sorry, try again tomorrow!")
+
 
 if __name__ == "__main__":
     main()
