@@ -17,7 +17,7 @@ def sub(intergers: list[int], start_index: int, end_index: int) -> list[int]:
     result: list[int] = list()
     if start_index < 0:
         start_index = 0
-    if end_index > len(intergers) - 1:
+    if end_index > len(intergers):
         end_index = len(intergers)
     if intergers == 0 or start_index > len(intergers) or end_index <= 0:
         return result
