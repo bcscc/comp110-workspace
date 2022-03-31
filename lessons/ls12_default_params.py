@@ -1,4 +1,4 @@
-"""Exampels of default parameters."""
+"""Examples of default parameters."""
 
 def add(x: int, y: int = 0, z: int = 0) -> int:
     """Default parameters give more flexibility to a function."""
